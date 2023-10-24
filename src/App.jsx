@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   addFavoriteAction,
   removeFavoriteAction,
-} from './store/favorites/actions';
+} from "./store/favorites/actions";
 // import { getFavorites } from './store/favorites/selectors';
-import { debounce } from 'lodash';
-import { getAllCharacters, searchCharacterName } from './api/character';
-import './style.css';
+import { debounce } from "lodash";
+import { getAllCharacters, searchCharacterName } from "./api/character";
+import "./style.css";
 
 function App() {
   const dispatch = useDispatch();
   const [characters, setCharacters] = useState({});
   const [results, setResults] = useState([]);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const favoriteCharacters = useSelector((state) => state.favorites);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ function App() {
               <h3>{item.name}</h3>
               <img src={item.image} />
               <button onClick={() => handleAddCharacter(item)}>
-                Add to favorites
+                Add character favorites
               </button>
             </li>
           ))}
