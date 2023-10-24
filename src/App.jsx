@@ -4,7 +4,7 @@ import {
   addFavoriteAction,
   removeFavoriteAction,
 } from "./store/favorites/actions";
-// import { getFavorites } from './store/favorites/selectors';
+import { getFavorites } from "./store/favorites/selectors";
 import { debounce } from "lodash";
 import { getAllCharacters, searchCharacterName } from "./api/character";
 import "./style.css";
@@ -14,7 +14,7 @@ function App() {
   const [characters, setCharacters] = useState({});
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
-  const favoriteCharacters = useSelector((state) => state.favorites);
+  const favoriteCharacters = useSelector(getFavorites);
 
   useEffect(() => {
     const getInfo = async () => {
