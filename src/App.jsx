@@ -37,7 +37,7 @@ function App() {
         value={query}
         onChange={handleSearch}
       ></input>
-      <ul>
+      <ul className="search-results-list">
         {results &&
           results.map((item) => (
             <li key={item.id} className="search-result">

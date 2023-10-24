@@ -5,6 +5,11 @@ body {
   align-items: center;
 }
 
+.search-results-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .search-result {
   box-sizing: border-box;
   list-style: none;
@@ -23,5 +28,5 @@ body {
 img {
   height: 150px;
   width: 150px;
-  border-radius: 10px;
+  border-radius: 50%;
 }
