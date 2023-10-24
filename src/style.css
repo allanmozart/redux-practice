@@ -1,0 +1,27 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-result {
+  box-sizing: border-box;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  align-items: center;
+  border: 4px solid aliceblue;
+  border-radius: 10px;
+  background-color: transparent;
+  margin: 20px;
+  box-shadow: 2px 2px 4px aliceblue;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+}
