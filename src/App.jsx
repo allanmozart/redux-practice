@@ -26,13 +26,14 @@ function App() {
   }, []);
 
   const debouncedSearch = debounce(async (queryText) => {
+    console.log("running");
     const newResults = await searchCharacterName(queryText);
     setResults(newResults);
-  }, 2000);
+  }, 3000);
 
   const handleSearch = async (event) => {
     setQuery(event.target.value);
-    debouncedSearch(query);
+    debouncedSearch(event.target.value);
   };
 
   const handleAddCharacter = (character) => {
@@ -44,18 +45,23 @@ function App() {
 
   return (
     <>
-      <ul className="character-list">
-        {favoriteCharacters &&
-          favoriteCharacters.map((item) => (
-            <li key={item.id} className="character-box">
-              <h3>{item.name}</h3>
-              <img src={item.image} />
-              <button onClick={() => handleRemoveCharacter(item)}>
-                Remove from favorites
-              </button>
-            </li>
-          ))}
-      </ul>
+      {favoriteCharacters && (
+        <>
+          <h2>Favorite Characters</h2>
+          <ul className="character-list">
+            {favoriteCharacters.map((item) => (
+              <li key={item.id} className="character-box">
+                <h3>{item.name}</h3>
+                <img src={item.image} />
+                <button onClick={() => handleRemoveCharacter(item)}>
+                  Remove from favorites
+                </button>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+
       <div className="search-form">
         <p>Number of characters: {characters.count}</p>
         <label htmlFor="search">Search characters: </label>

@@ -21,6 +21,14 @@ body,
   background-position: 0 0, 22px 22px;
 }
 
+h2 {
+  color: var(--head-text-color);
+  text-shadow: 1px 1px 2px var(--background-color-secondary);
+  font-size: 2rem;
+  margin: 10px;
+  text-transform: uppercase;
+}
+
 .search-form {
   background-color: var(--background-color-secondary);
   color: var(--background-color);
@@ -34,7 +42,6 @@ body,
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 20px;
 }
 
 .character-box {

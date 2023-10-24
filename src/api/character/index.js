@@ -1,8 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 export async function getAllCharacters() {
-  const response = await axios.get('https://rickandmortyapi.com/api/character');
-  console.log(response.data);
+  const response = await axios.get("https://rickandmortyapi.com/api/character");
   return response.data.info;
 }
 
