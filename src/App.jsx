@@ -44,7 +44,7 @@ function App() {
 
   return (
     <>
-      <ul>
+      <ul className="character-list">
         {favoriteCharacters &&
           favoriteCharacters.map((item) => (
             <li key={item.id} className="character-box">
@@ -56,22 +56,24 @@ function App() {
             </li>
           ))}
       </ul>
-      <p>Number of characters: {characters.count}</p>
-      <label htmlFor="search">Search characters: </label>
-      <input
-        type="text"
-        id="search"
-        value={query}
-        onChange={handleSearch}
-      ></input>
-      <ul className="search-results-list">
+      <div className="search-form">
+        <p>Number of characters: {characters.count}</p>
+        <label htmlFor="search">Search characters: </label>
+        <input
+          type="text"
+          id="search"
+          value={query}
+          onChange={handleSearch}
+        ></input>
+      </div>
+      <ul className="character-list">
         {results &&
           results.map((item) => (
             <li key={item.id} className="character-box">
               <h3>{item.name}</h3>
               <img src={item.image} />
               <button onClick={() => handleAddCharacter(item)}>
-                Add character favorites
+                Add character to favorites
               </button>
             </li>
           ))}
