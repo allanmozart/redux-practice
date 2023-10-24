@@ -13,7 +13,6 @@ function App() {
   const dispatch = useDispatch();
   const [characters, setCharacters] = useState({});
   const [results, setResults] = useState([]);
-  const [query, setQuery] = useState("");
   const favoriteCharacters = useSelector(getFavorites);
 
   useEffect(() => {
@@ -26,13 +25,11 @@ function App() {
   }, []);
 
   const debouncedSearch = debounce(async (queryText) => {
-    console.log("running");
     const newResults = await searchCharacterName(queryText);
     setResults(newResults);
   }, 3000);
 
   const handleSearch = async (event) => {
-    setQuery(event.target.value);
     debouncedSearch(event.target.value);
   };
 
@@ -65,12 +62,7 @@ function App() {
       <div className="search-form">
         <p>Number of characters: {characters.count}</p>
         <label htmlFor="search">Search characters: </label>
-        <input
-          type="text"
-          id="search"
-          value={query}
-          onChange={handleSearch}
-        ></input>
+        <input type="text" id="search" onChange={handleSearch}></input>
       </div>
       <ul className="character-list">
         {results &&
