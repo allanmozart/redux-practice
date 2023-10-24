@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   addFavoriteAction,
   removeFavoriteAction,
-} from "./store/favorites/actions";
-import { getFavorites } from "./store/favorites/selectors";
-import { debounce } from "lodash";
-import { getAllCharacters, searchCharacterName } from "./api/character";
-import "./style.css";
+} from './store/favorites/actions';
+import { getFavorites } from './store/favorites/selectors';
+import { debounce } from 'lodash';
+import { getAllCharacters, searchCharacterName } from './api/character';
+import './style.css';
 
 function App() {
   const dispatch = useDispatch();
   const [characters, setCharacters] = useState({});
   const [results, setResults] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const favoriteCharacters = useSelector(getFavorites);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   const debouncedSearch = debounce(async (queryText) => {
-    console.log("running");
+    console.log('running');
     const newResults = await searchCharacterName(queryText);
     setResults(newResults);
   }, 3000);
